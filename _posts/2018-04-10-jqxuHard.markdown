@@ -1,0 +1,199 @@
+---
+layout:     post
+title:      "ubuntu深度学习软硬件开发环境搭建"
+subtitle: ""
+date:       2018-04-10 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - 机器学习
+---
+## 硬件 ##
+先从硬件自已配机器开始：
+目前对于个人来说，性价比比较高的深度学习显卡是那个11G显存的GTX 1080Ti.这里显卡定了，接下来就是主板内存硬盘，显示器。先报一下我配的机器配置：
+
+    CPU      "英特尔（Intel） i5 7500 酷睿四核 盒装CPU处理器"                 1379元          
+    主板      "微星（MSI）Z270 KRAIT GAMING主板(Intel Z270/LGA 1151)"       1069元  
+    显卡      "七彩虹iGame GTX1080Ti 尼普顿 Neptune W 水冷显卡11G"          6389元
+    内存       "ADATA威刚 XPG 游戏红色威龙DDR4 2400 8GB台式机内存 2条共16G"   1170元
+    固态硬盘    "三星CM871a M.2 2280 SATA笔记本台式机SSD固态硬盘128G"	        379元    
+    机械硬盘    "WD/西部数据 WD10EZEX 1T台式机硬盘 西数1TB 单碟蓝盘64M"        300元
+    电源      "海盗船RM1000X 全模组电源额定1000W金牌认证"                   1278元
+    CPU风扇	  "(PCCOOLER)东海X6 CPU散热器"					            129元
+    显示器	    "Dell/戴尔U2417H 23.8英寸IPS微边框升降旋转显示器"			  1478元
+    机箱		  "爱国者（aigo）炫影 黑色 分体式水冷机箱"			          219元
+    鼠键套装    "雷柏8200P 无线鼠标键盘套装 蓝色"			                  125元
+    
+    合计:13915元
+win10下鲁大师跑分：441458
+![鲁大师跑分](/img/in-post/jqxuHard/1.png)
+    
+这里机箱有点小了，水冷显卡比较大，水冷管不好放，不太满意，建意多花几百买一个更大一点的机箱，如果你的资金充足CPU可以买i5 7500k或者更高级一些的处理器，intel有k的CPU是可以超频的。先用着，后期赚到钱了可以换机箱，也可以再买个显卡，到时候可以双显卡。总的来说对于初学者基本单卡训练已经可以了。我这里主要想用来分析交易数据，不作图片和视频分类识别，11G的显存对我来说可能都有点浪费了。这个主板是2017年出的好像，支持双显卡SLI，虽然用双显卡时Pci-e 通道是两个x8的，担据说这个对性能影响不大。单显卡的话是Pci-e x16。
+
+自已有一台mac book pro,还有一个4T的移动硬盘。这台机器只打算用来玩机器学习。所以硬盘只选了1T的机械盘和128G的固态硬盘，显示器也没有买27寸或者更大的。Dell的这个显示器可以很方便的转成竖着，方便程序运行起来了看log和浏览代码。
+
+如果是游戏发烧友，这个配置玩吃鸡也是很可以了。总的来说，比网上的动不动就好几万的机器可能差点。但基本上用来学习是够用了。
+
+## 软件 ##
+ 
+我计划主要以tensorflow为主来学习机器学习，这里参考两个文章来安装软件开发环境。文章中需要去官网上下载显卡驱动和看官方的安装说明。
+第一个:
+
+<a href="http://blog.rickdyang.me/2017-03//install-tensorflow/" target="_blank">Ubuntu 16.04 & GTX 1050的深度学习开发环境搭建</a>
+
+第二个：
+
+<a href="http://www.52nlp.cn/深度学习服务器环境配置-ubuntu17-04-nvidia-gtx-1080-cuda-9-0-cudnn-7-0-tensorflow-1-3" target="_blank">深度学习服务器环境配置: Ubuntu17.04+Nvidia GTX 1080+CUDA 9.0+cuDNN 7.0+TensorFlow 1.3</a>
+
+因为写这个文章的时候tensorflow 1.4还没有正式发布，官方的是从1.4开始支持Nvidia 显卡的CUDA 9.0。目前tensorflow还是1.3版本。Nvidia官方也不好下载CUDA 8.0。在网上找到了上边的第二个文章，使用修改编译安装的方法安装tensorflow 1.3使他支持CUDA 9.
+
+这里先把这些东西在我的博客里收藏一下。新电脑系统还没有装，等新买的桌子到了再开始安装ubuntu和整个tensorflow开发环境，环境正式搭建好了，用起来了再好好整理一下安装和使用细节，详细的写给大家 。
+
+<a href="https://jingyan.baidu.com/article/bad08e1ef4b2f109c85121b7.html" target="_blank">ubuntu安装中文输入法</a>
+
+如果在安装的中文包后出现进入不了系统桌面，这时按"ctrl + Alt + F1"进入命令行系统模式，先卸载ubuntu桌面再重新安装一次显卡驱动，然后再安装ubuntu桌面。安装显卡驱动参考上边的文章
+
+ubuntu 桌面卸载：
+```bash
+sudo apt-get remove ubuntu-desktop
+```
+ubuntu 桌面安装：
+```bash
+sudo apt-get install ubuntu-desktop
+```
+
+## Nvidia官方工具 ##
+
+###显卡驱动程序#
+<a href="http://www.nvidia.com/download/driverResults.aspx/123918/en-us" target="_blank">GTX 1080Ti  64位linux驱动</a>
+
+在ubuntu的桌面环境下是没有变法安装显卡驱动的，安装显卡驱动时要退出ubuntu桌面
+
+先点右上边的设备-->选择log Out,退到登陆用户界面，再按Ctrl + Alt + F1 进入命令行模式。
+
+在这里输入用户名和密码进入命令行
+
+关闭ubuntu桌面系统服务
+```bash
+sudo service lightdm stop
+```
+然后cd到你下载显卡的目录安装显卡，安装之前保险期间给驱动程序设制一下运行权限，我的驱动程序是NVIDIA-Linux-x86_64-384.90.run
+
+```bash
+sudo chmod 777 NVIDIA-Linux-x86_64-384.90.run
+sudo ./NVIDIA-Linux-x86_64-384.90.run
+```
+
+安装完驱动程序后，重启一下系统就可以了，如果后边遇到驱动程序别的问题，要重新安装的话，记得在运行NVIDIA-Linux-x86_64-384.90.run时要选择先卸载原来的驱动项
+
+下边是卸载驱动的方法，一定要先卸载再安装才不会因为安装驱动后无法进入桌面
+```bash
+sudo apt-get remove –purge nvidia*
+```
+
+参考：
+<a href="http://www.linuxidc.com/Linux/2015-09/123563.htm" target="_blank">ubuntu显卡驱动安装方法</a>
+<a href="https://blog.csdn.net/datase/article/details/80578960" target="_blank">ubuntu显卡驱动更新的问题</a>
+
+
+### Nvidia CUDA ToolKit ###
+
+<a href="https://developer.nvidia.com/cuda-downloads" target="_blank">Nvidia CUDA ToolKit官方最新版</a>
+
+（如果最新版不好用，可能要下载旧版本，旧版本官网上找不到下载链接，我这里在网盘上保存了一个CUDA8.0的）
+
+CUDA8.0.44网盘下载地址,操作系统为ubuntu16.04 64位
+
+链接: <a href="https://pan.baidu.com/s/1bBZ7au" target="_blank">https://pan.baidu.com/s/1bBZ7au</a> 密码: yvuh
+
+<a href="http://docs.nvidia.com/cuda/cuda-installation-guide-linux/" target="_blank">CUDA官方安装说明</a>
+
+<a href="http://developer.download.nvidia.com/compute/cuda/opensource/" target="_blank">CUDA官方源码</a>
+
+cuda安装后要设置的环境变量
+```bash
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
+
+注意问题，
+
+我在安装完成，环境变量也设置后试着测试运行CUDA时发现找不到显卡设备。这里可能有两个原因
+
+第一种原因，在安装CUDA时没有更新主板对显卡的识别，处理方法是：
+
+用下边方法显看pci设备显卡类型
+```bash
+lspci | grep -i nvidia
+```
+如果不能正确显示显卡型号，我的显卡是GTX 1080 Ti,我在这时候就没有看到我的显卡型号，没有看到，就需要更新一下PCI ids
+```bash
+sudo update-pciids
+```
+更新完pci设备信息后，可以再查看一下，如果显卡驱动安装正确，这时会看到显卡型号
+
+第二种可能的原因，在安装CUDA时又安装了一次CUDA自带的显卡驱动。但CUDA8.0自带的显卡驱动并不是GTX 1080 Ti最新的驱动，这里运行
+```bash
+nvidia-smi
+```
+可以看到显卡信息，但在运行CUDA例子deviceQuery时结果会失败。
+
+处理方法是，再重新安装一次最新的显卡驱动程序就好。
+
+### Nvidia cuDNN ###
+<a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank">Nvidia cuDNN下载</a>
+
+官网上到是给了cuDNN的旧版本下载地址，可以自行选择，tensorflow 1.3只支持cuDNN v6,CUDA8.0.所以不要下载错了
+
+<a href="http://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html" target="_blank">cuDNN官方安装说明</a>
+
+#### 安装方法 ####
+#####第一步
+只要CUDA安装好了，cuDNN安装起来比较简单，只要把相应的文件复制到CUDA的目录里就好。
+```bash
+$ sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+$ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
+$ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
+```
+#####第二步
+这个安装好之后，要作一下ldconfig的配置，这个在官方网站上好像没有说。反正我在官网上没有看到。如果这步不作，后边使库生效的sudo ldconfig运行会报一个so库的链接错误
+```bash
+cd /usr/local/cuda/lib64/   
+sudo rm -rf libcudnn.so libcudnn.so.7   
+sudo ln -s libcudnn.so.7.0.3 libcudnn.so.7   
+sudo ln -s libcudnn.so.7 libcudnn.so
+```
+如果你安装的是cuDNN 6.0的版本，上边的就填6.0，因为tensorflow只认6.0，的libcudnn.so.6.我是将6.0的和7.0都安装一下。上边的部分我安装6.0时没有改过
+
+#####第三步
+配置环境变量，可以是用户下的～/.profile也可以是系统下的/etc/profile.为了方便多用户使用最好环境变量是配置在系统用户下
+```bash
+sudo gedit /etc/profile
+```
+在文件后边加上cuda的可执行程序路径
+```bash
+PATH=/usr/local/cuda/bin:$PATH   
+export PATH
+```
+创建库路径链接配置文件
+```bash
+sudo gedit /etc/ld.so.conf.d/cuda.conf
+```
+在打开的文件中加入cuda库所在路径
+```bash
+/usr/local/cuda/lib64
+```
+然后使库路径配置生效
+```bash
+sudo ldconfig
+```
+
+##tensorflow安装说明
+<a href="https://www.tensorflow.org/install/install_linux" target="_blank">tensorflow官方linux平台安装说明</a>
+
+<a href="https://github.com/tensorflow/tensorflow" target="_blank">tensorflow官方源码</a>
+
+官方的英文文档安装说明很全，也比较简单，这里就不多说什么了，唯一要注意的问题是，最好不要源码安装tensorflow，会很麻烦，少这库，少那库不说，还有各种编译工具安装也会很麻烦，最开始我是想源码安装CUDA9.0和tensorflow1.4rc的，没成功，最后还是安装了cuda8.0和1.3才安装成功。
+
+![安装完成后的样子](/img/in-post/jqxuHard/2.png)
+

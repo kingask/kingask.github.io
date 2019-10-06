@@ -1,0 +1,57 @@
+---
+layout:     post
+title:      "让树莓派终端和ssh显示中文"
+subtitle: ""
+date:       2018-10-02 09:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags: 
+    - rpi
+---
+#让树莓派终端和ssh显示中文
+
+###前言
+为了让我的树莓派可以进行中文tts输出，安装了一个espeak，在输入下边命令时，发现中文完全不显示
+```bash
+espeak -vzh "编程"
+```
+用这个tts播放英文感觉还好，但中文tts语音的效果实在是太烂了，这个不说了，下说主要说明如果让终端显示中文
+###安装中文字库
+```bash
+sudo apt-get install ttf-wqy-zenhei
+```
+###设置系统支持中文
+使用vi打开语言配置文件
+```bash
+ vi /etc/locale.gen
+```
+把里边的
+```
+en_GB.UTF-8 UTF-8
+```
+注释掉，删除en_US.UTF-8 UTF-8前边的#号
+同时删除
+```
+zh_CN GB2312
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+```
+这四个前边的#号，休存退出vi
+
+###设置让系统支持en_US.UTF-8
+我一开始就是没有设置这一项，结果在终端和ssh都不显示中文，输入中文后会出现什么都不显示的情况
+设置方法是在系统的环境变量配置的文件.profile 中增加下边两项设置
+```bash
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+###最后重启rpi或者运行下边命令激活语言设置
+```
+reboot
+```
+或者
+```
+locale-gen
+```
+我建义用重启系统的方法，这样感觉更快一些。

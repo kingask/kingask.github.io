@@ -1,0 +1,66 @@
+---
+layout:     post
+title:      "python超轻量级kv数据库dbm"
+subtitle: ""
+date:       2018-04-10 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - python
+---
+有一些小的数据需要保存到文件，但也常常要修改。dbm的键值文件存储正好解决了这个问题。
+
+##未例代码
+``` python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Date    : 2017-02-22 09:44:42
+
+import dbm
+
+dbpth = './db/keysdb'
+
+def inset(key,value):
+    db = dbm.open(dbpth, 'c')
+    db[key] = value
+    db.close()
+
+def delet(key):
+    db = dbm.open(dbpth, 'c')
+    if db.has_key(key):
+        del db[key]
+    db.close()
+
+def update(key,value):
+    db = dbm.open(dbpth, 'c')
+    db[key] = value
+    db.close()
+
+def select(key):
+    db = dbm.open(dbpth, 'c')
+    if db.has_key(key):
+        return db[key]
+    else:
+        return None
+    db.close()
+
+def allKeys():
+    db = dbm.open(dbpth, 'c')
+    return db.keys() 
+    db.close()
+
+def main():
+    print allKeys()
+    inset('mykey2', '111')
+    print select('mykey')
+    delet('mykey')
+    print select('mykey')
+    print select('mykey2')
+    update('mykey2', 'dddx')
+    print select('mykey2')
+    print allKeys()
+
+if __name__=="__main__":  
+    main()
+```
+把dbm当成一个字典来用就好。只是这个字典里只能保存字符串，key和value都只能是字符串。不过只用字符串就够用了。

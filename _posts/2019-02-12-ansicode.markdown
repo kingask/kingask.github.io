@@ -1,0 +1,58 @@
+---
+layout:     post
+title:      "使用Python把UTF8转ANSI编码"
+subtitle: ""
+date:       2019-02-12 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - python
+---
+
+## 前言
+
+Windows 下用记事本保存文件时有个 ANSI 编码，在python 中使用 mbcs 编码（Windows only）表示 ANSI:
+```python
+with open('hello.txt', 'w') as f:
+    f.write(u'你好'.encode('mbcs'))
+```
+执行上面的代码，就可以创建一个 ANSI 编码的文件。
+
+ANSI == Windows 本地编码
+在简体中文 Windows 系统中：ansi == gbk :
+```bash
+>>> u'你好'.encode('mbcs')
+'\xc4\xe3\xba\xc3'
+>>> u'你好'.encode('mbcs').decode('gbk')
+u'\u4f60\u597d'
+```
+## 把UTF8的文件转码成ANSI文件##
+
+直接上代码:
+```Python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os
+import codecs
+
+#oldfile:UTF8文件的路径
+#newfile:要保存的ANSI文件的路径
+def convertUTF8ToANSI(oldfile,newfile):
+
+    打开UTF8文本文件
+    f = codecs.open(oldfile,'r','utf8')
+    utfstr = f.read()
+    f.close()
+    
+    #把UTF8字符串转码成ANSI字符串
+    outansestr = utfstr.encode('mbcs')
+
+    #使用二进制格式保存转码后的文本
+    f = open(newfile,'wb')
+    f.write(outansestr)
+    f.close()
+```
+
+## 注意
+
+mbcs是windows下独有的，所在这个程序只能在windows使用

@@ -1,0 +1,19 @@
+{
+  "name": "Mage Blog",
+  "short_name": "Mage Blog",
+  "description": "About an engineer & designer who loves web.",
+  "icons": [{
+    "src": "icon128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "icon512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

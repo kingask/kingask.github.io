@@ -1,0 +1,65 @@
+---
+layout:     post
+title:      "使用adblock plus浏览器插件屏蔽广告"
+subtitle: ""
+date:       2018-04-10 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - 广告拦截
+---
+
+这几天突然发现csnd的扩展栏里在最醒目的地方多出一个让人讨厌的广告。加广告个人并没有意见，毕竟提供服务网站的人也要吃饭。但广告加的位置过于醒目，遮挡了网页原有的内容就很讨厌了。广告可以放在页底，或者则边栏，最好是静态广告，可以每刷新一次网页自动更新一次，但不要一直闪来闪去的晃的人头痛。
+
+在网上搜了一下广告屏蔽内容。发现对于广告屏蔽有很多方法。不过浏览器上用的最多的好像就是这个adblock plus.在官网上看到这个工具是开源的，对于开源的工具，在安全性上个人感觉要高一些。
+
+##1.路由器中使用广告拦截
+本来还打算在自已的t路由器里直接使用广告拦截功能。出于安全考虑，路由器里的广告拦截没有开源的工具，就放弃在路由器中屏蔽广告了。其实我的路由器里有提供三个常见的广告拦截工具。还是安全考虑没有使用。
+
+![路由器里的扩展功能](/img/in-post/gglanjie/1.png)
+
+![路由器里的广告拦截功能](/img/in-post/gglanjie/2.png)
+
+目前路由器上的广告拦截常用的应该就是我路由器自带的这三个Adbyby,ADM,koolproxy。
+
+koolproxy要安装一个第三方的证书，来过滤https广告，不开源的东西安全上都有风险。
+
+##2.浏览器中使用广告拦截
+adblock plus插件支持Chrome,Opera,Safari,firefox等常见浏览器。
+
+官网：https://adblockplus.org/
+github：https://github.com/adblockplus/adblockplus/
+
+安装的话，使用源码应该也可以编译安装，也可以直接从官网首页下载浏览器插件。
+
+这里主要说一下设置方法。
+###Safari浏览器
+插件安装好之后，会在浏览器的地址输入栏左边看到下边图标
+![浏览器上的设置图标](/img/in-post/gglanjie/3.png)
+
+点击之后会打开插件设置页面：
+![点击设置图标后的图片](/img/in-post/gglanjie/4.png)
+
+选择设置：
+![拦截设置](/img/in-post/gglanjie/5.png)
+
+再添加中文语言过滤项
+![添加中文语言过滤项](/img/in-post/gglanjie/6.png)
+
+设置好之后像下边的样子
+![设置好之后的样子](/img/in-post/gglanjie/7.png)
+
+这样广告拦截功能就OK了。可以打开一个网页试一下。
+
+###Chrome浏览器
+在Chrome浏览器中地址栏里输入
+https://chrome.google.com/webstore/category/extensions
+在这里搜索adblock plus，其中第一个插件就是我们要找的，安装点ADD安装这个插件就好。
+![google插件商店](/img/in-post/gglanjie/8.png)
+
+Chrome中插件安装好之后在浏览器的右上角会看到插件图标，设置的方法和Safari是一样的。
+
+![Chromek上的设置图标](/img/in-post/gglanjie/9.png)
+
+##总结
+整个世界清静了。

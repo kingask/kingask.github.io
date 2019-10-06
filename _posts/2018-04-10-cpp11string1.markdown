@@ -1,0 +1,141 @@
+---
+layout:     post
+title:      "C++使用字符串作为switch的case子句"
+subtitle:   ""
+date:       2018-04-10 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - C++
+---
+## 前言 ##
+
+
+C++的switch没有使用字符串作为case选择分支的。所以这里用这个作为字符串的case分支真的很不错。因为这里用到了C++11的constexpr函数文字常量语法，函数会在编译的时候生成字串符的hash值，所以不会出现case重复的情况，如果出现重复程序会编译报错。
+
+## 正文 ##
+
+有时候，我们想写出下面这样的switch语句
+
+```C
+
+const char* str = "first";  
+switch(str){  
+case "first":  
+    cout << "1st one" << endl;  
+    break;  
+case "second":  
+    cout << "2nd one" << endl;  
+    break;  
+case "third":  
+    cout << "3rd one" << endl;  
+    break;  
+default:  
+    cout << "Default..." << endl;  
+}
+```
+
+但是在c++中，是不能用字符串来作为case的标签的；于是，很疑惑，我们只能用其他的办法来实现这样的需求。
+
+但幸运的是，c++11引入了constexpr和自定义文字常量，将这两个新特性结合，我们实现出看上去像上面这样的代码。
+
+基本思路为：
+
+1. 定义一个hash函数，计算出字符串的hash值，将字符串转换为1个整数；
+
+```C
+
+typedef std::uint64_t hash_t;  
+   
+constexpr hash_t prime = 0x100000001B3ull;  
+constexpr hash_t basis = 0xCBF29CE484222325ull;  
+  
+hash_t hash_(char const* str)  
+{  
+    hash_t ret{basis};  
+   
+    while(*str){  
+        ret ^= *str;  
+        ret *= prime;  
+        str++;  
+    }  
+   
+    return ret;  
+}  
+```
+
+2. 利用c++11自定义文字常量的语法，定义一个constexpr函数，switch的case标签处调用这个constexpr函数。如下
+
+```C
+constexpr hash_t hash_compile_time(char const* str, hash_t last_value = basis)  
+{  
+    return *str ? hash_compile_time(str+1, (*str ^ last_value) * prime) : last_value;  
+}
+```
+
+这个函数只有短短的一行，利用递归得到了与上面hash_函数得到的同样值，由于用constexpr声明了函数，因此编译器可以在编译期得出一个字符串的hash值，而这正是关键，既然是编译器就可以得到的整型常量，自然可以放到switch的case标签处了。
+于是我们可以写出这样的swich语句：
+
+```C
+void simple_switch2(char const* str)  
+{  
+    using namespace std;  
+    switch(hash_(str)){  
+    case hash_compile_time("first"):  
+        cout << "1st one" << endl;  
+        break;  
+    case hash_compile_time("second"):  
+        cout << "2nd one" << endl;  
+        break;  
+    case hash_compile_time("third"):  
+        cout << "3rd one" << endl;  
+        break;  
+    default:  
+        cout << "Default..." << endl;  
+    }  
+}  
+```
+这个实现中，hash_compile_time("first")是编译器计算出来的一个常量，因此可以用作case标签；而且如果出现了hash值冲突，编译器回给出错误提示。
+
+3. 上面的语法还不够漂亮，利用自定义文字常量，重载一个operator如下：
+
+```C
+constexpr unsigned long long operator "" _hash(char const* p, size_t)  
+{  
+    return hash_compile_time(p);  
+}  
+``` 
+
+现在我们可以写这样的文字常量，用“_hash”作为自定义文字常量的后缀，编译器看到这个后缀结尾的文字常量，就会去调用我们重载的operator，得到和调用hash_compile_time是一样的值，但看起来舒服多了：
+
+```C
+"first"_hash  
+```
+
+现在，我们写出的switch语句就好看多了。
+
+```C
+void simple_switch(char const* str)  
+{  
+    using namespace std;  
+    switch(hash_(str)){  
+    case "first"_hash:  
+        cout << "1st one" << endl;  
+        break;  
+    case "second"_hash:  
+        cout << "2nd one" << endl;  
+        break;  
+    case "third"_hash:  
+        cout << "3rd one" << endl;  
+        break;  
+    default:  
+        cout << "Default..." << endl;  
+    }  
+}  
+```
+
+经过我的测试，在cocos2d-x 3.2版本里，我对骨骼动画的帧事件中用了switch，可以正常使用。
+
+转自：[http://blog.csdn.net/yozidream/article/details/22789147][1]
+
+[1]:http://blog.csdn.net/yozidream/article/details/22789147

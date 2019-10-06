@@ -1,0 +1,16 @@
+---
+layout:     post
+title:      "linux shell获取脚本所在目录"
+subtitle: ""
+date:       2018-04-10 12:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - linux
+---
+当我们把shell作为可执行文件，并把shell脚本路径加入到环境变量之后，在其他目录使用脚本时，我们想知道脚本所在目录在那里，因为我们可能还要调用和脚本在同级目录的其他工具，比如python脚本。这时在脚本运行时要使用pwd命令得到的并不是脚本所在目录，而是运行脚本的目录。这时候使用
+```Makefile
+basepath=$(cd `dirname $0`; pwd)
+echo ${basepath }
+```
+可以得到脚本所在目录
