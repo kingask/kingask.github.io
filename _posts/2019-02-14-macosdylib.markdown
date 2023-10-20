@@ -9,7 +9,7 @@ tags:
     - Mac OS
 ---
 
-## Mac系统动态库问题描述111118888888888888888888555555555555555555ppp
+## Mac系统动态库问题描述111118888888888888888888555555555555555555pppgxdf
 
 现在假如有一个app应用canrunfile.app，他引用了一个/usr/lib下的系统库/usr/lib/libs.1.dylib，还引用了一个第三方库"libA.1.dylib".再假如这个libA.1.dylib动态库又引用了另一个第三方的动态库libB.2.dylib.
 
