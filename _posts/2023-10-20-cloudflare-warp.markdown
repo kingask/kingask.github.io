@@ -6,7 +6,7 @@ date:       2023-10-20 00:54:00
 author:     "Mage"
 header-img: "img/post-bg-universe.jpg"
 tags:
-    - Mac OS
+    - Windows
 ---
 
 
