@@ -21,7 +21,7 @@ ip优选
 
 [点击下载](https://dl.fuluping.com/warp.rar)
 
-[视频1](https://dl.fuluping.com/1.mp4)
+
 
 <video width="320" height="240" controls autoplay>
   <source src="视频链接" type="https://dl.fuluping.com/1.mp4">
