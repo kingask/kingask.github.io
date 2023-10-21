@@ -23,7 +23,7 @@ ip优选
 
 [视频1](https://dl.fuluping.com/1.mp4)
 
-<video width="320" height="240" controls>
+<video width="320" height="240" controls autoplay>
   <source src="视频链接" type="https://dl.fuluping.com/1.mp4">
   您的浏览器不支持播放该视频。
 </video>
