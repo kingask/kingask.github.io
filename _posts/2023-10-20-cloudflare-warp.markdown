@@ -21,6 +21,8 @@ ip优选
 
 [点击下载](https://dl.fuluping.com/warp.rar)
 
+[视频1](https://dl.fuluping.com/1.mp4)
+
 
 
 #### 2.下载cloudflare wrap 
