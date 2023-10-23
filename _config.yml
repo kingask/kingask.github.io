@@ -1,11 +1,11 @@
 # Site settings
-title: Luping's Blog
+title: " "
 SEOTitle: luping的博客
-header-img: img/home-bg.jpg
+header-img: img/home-bg-o.jpg
 email: boss@fuluping.com
 description: "关于前端与设计、黑客与画家 | luping，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @luping 的个人博客，与你一起发现更大的世界。"
 keyword: "luping的博客, Hux Blog, 博客, 个人网站, C++,Erlang,Python,移动互联网,手机游戏,app, 设计"
-url: "https://z99.xyz"              # your host, for absolute URL
+url: "https://blog.fuluping.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 

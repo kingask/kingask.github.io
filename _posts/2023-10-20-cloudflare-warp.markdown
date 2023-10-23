@@ -6,20 +6,27 @@ date:       2023-10-20 00:54:00
 author:     "Mage"
 header-img: "img/post-bg-universe.jpg"
 tags:
-    - Mac OS
+    - Windows
 ---
 
 
 
-# Cloudfare warp 配置
+# Cloudfare warp 配置7
 
 
 
 #### 1.下载ip优选工具1
 
-ip优选
+ip优选111
 
 [点击下载](https://dl.fuluping.com/warp.rar)
+
+
+
+<video width="320" height="240" controls>
+  <source src="https://dl.fuluping.com/1.mp4" type="video/mp4">
+  您的浏览器不支持播放该视频。
+</video>
 
 
 
