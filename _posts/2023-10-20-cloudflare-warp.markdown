@@ -38,6 +38,7 @@ ip优选111
 
 #### 3.生成wireguard 配置文件
 
+将上述生成了26位许可 作为变量输入到下面脚本中
 https://replit.com/@misaka-blog/wgcf-profile-generator
 
 
