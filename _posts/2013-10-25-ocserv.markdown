@@ -150,7 +150,7 @@ setenforce 0
 export LIBGNUTLS_CFLAGS="-I/usr/include/" LIBGNUTLS_LIBS="-L/usr/lib/ -lgnutls"
 
 #下载ocserv并编译安装
-wget  http://tomcatboby.oss-cn-shanghai.aliyuncs.com/conf/ocserv-0.8.2.tar.xz
+wget  http://mybase.fuluping.com/conf/ocserv-0.8.2.tar.xz
 tar Jxf ocserv-$version.tar.xz
 cd ocserv-$version
 ./configure
