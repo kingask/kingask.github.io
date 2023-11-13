@@ -15,3 +15,5 @@ tags:
 - Cmd+Ctrl+Power: 重启 (restart)
 - Cmd+Ctrl+Opt+Power: 关机 (shutdown)
 
+- hello
+
