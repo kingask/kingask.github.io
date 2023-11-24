@@ -1,0 +1,47 @@
+---
+layout:     post
+title:      "软件大全"
+subtitle: ""
+date:       2023-10-24 00:00:00
+author:     "Mage"
+header-img: "img/post-bg-universe.jpg"
+tags:
+    - soft
+---
+
+
+# 软件大全 
+
+## 安卓版本
+
+### Matsuri
+
+安卓端的替代软件是Matsuri, 也就是茉莉.
+
+
+安卓端的替代软件是Matsuri, 也就是茉莉.
+
+当前版本0.5.8:
+
+项目地址: https://github.com/MatsuriDayo/Matsuri
+
+下载链接(无需翻墙): https://ghproxy.com/https://github.com/MatsuriDayo/Matsuri/releases/download/0.5.8/Matsuri-0.5.8-arm64-v8a.apk
+
+点击上方的下载链接即可!
+
+Play商店也可以下载
+
+### NekoBox
+
+
+https://github.com/MatsuriDayo/NekoBoxForAndroid
+
+play商店也可以下载
+
+## Windows 版本
+
+自从clash跑路，软件好像有点不稳定，可以用替代软件
+
+### clash-nyanpasu
+
+https://github.com/keiko233/clash-nyanpasu/releases/tag/v1.4.0
