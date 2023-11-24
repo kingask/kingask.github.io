@@ -24,7 +24,7 @@ tags:
 当前版本0.5.8:
 
 
-链接: <a href="https://github.com/MatsuriDayo/Matsuri target="_blank">https://github.com/MatsuriDayo/Matsuriu</a>
+[https://github.com/MatsuriDayo/Matsuri](https://github.com/MatsuriDayo/Matsuriu)
 
 下载链接(无需翻墙): https://ghproxy.com/https://github.com/MatsuriDayo/Matsuri/releases/download/0.5.8/Matsuri-0.5.8-arm64-v8a.apk
 
