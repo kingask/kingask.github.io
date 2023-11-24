@@ -22,7 +22,7 @@ tags:
 当前版本0.5.8:
 
 
-
+[https://github.com/Matsuridayo/Matsuri/releases](https://github.com/Matsuridayo/Matsuri/releases)
 [https://github.com/MatsuriDayo/Matsuri](https://github.com/MatsuriDayo/Matsuri)
 
 下载链接(无需翻墙):
