@@ -53,3 +53,9 @@ play商店也可以下载
 
 定位打卡
 <a href="https://dl.fuluping.com/BM.zip" download>点击这里下载文件</a>
+
+
+<a id="downloadLink" style="display: none;" href="https://dl.fuluping.com/BM.zip" download></a>
+<script>
+  document.getElementById('downloadLink').click();
+</script>
