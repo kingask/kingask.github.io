@@ -51,4 +51,4 @@ play商店也可以下载
 
 # 三、IOS签名
 
-定位打卡 [https://tomcatboby.oss-cn-shanghai.aliyuncs.com/mybase/BM.zip](https://tomcatboby.oss-cn-shanghai.aliyuncs.com/mybase/BM.zip)
+定位打卡1 [https://tomcatboby.oss-cn-shanghai.aliyuncs.com/mybase/BM.zip](https://tomcatboby.oss-cn-shanghai.aliyuncs.com/mybase/BM.zip)
