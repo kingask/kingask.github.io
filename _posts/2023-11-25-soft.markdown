@@ -17,11 +17,13 @@ tags:
 
 ### NekoBox
 
+Nekobox 1.3版本
 
-[https://github.com/MatsuriDayo/NekoBoxForAndroid](https://github.com/MatsuriDayo/NekoBoxForAndroid)
+[https://dl.fuluping.com/nekobox/NB4A-1.3.0-arm64-v8a.apk](https://dl.fuluping.com/nekobox/NB4A-1.3.0-arm64-v8a.apk)
+[https://dl.fuluping.com/nekobox/NB4A-1.3.0-armeabi-v7a.apk](https://dl.fuluping.com/nekobox/NB4A-1.3.0-armeabi-v7a.apk)
 
 play商店也可以下载
-z
+
 ## 二、Windows 版本
 
 自从clash跑路，软件好像有点不稳定，可以用替代软件
