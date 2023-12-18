@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "软件大全"
-subtitle: "heporndude.com"
+subtitle: "heporndude"
 date:       2023-11-24 00:54:00
 author:     "Mage"
 header-img: "img/post-bg-universe.jpg"
