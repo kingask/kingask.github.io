@@ -28,6 +28,10 @@ play商店也可以下载
 
 自从clash跑路，软件好像有点不稳定，可以用替代软件
 
+### clash历史版本
+
+[https://dl.fuluping.com/Clash.for.Windows.Setup.0.20.39.exe](https://dl.fuluping.com/Clash.for.Windows.Setup.0.20.39.exe)
+
 ### clash-nyanpasu
 
 [https://dl.fuluping.com/Clash.Nyanpasu_1.4.0_x64_zh-CN.msi](https://dl.fuluping.com/Clash.Nyanpasu_1.4.0_x64_zh-CN.msi)
