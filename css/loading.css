@@ -1,0 +1,51 @@
+/* CSS */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#site-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  font-size: 20px;
+}
+
+#site-loader .loader {
+  width: 80px;
+  height: 80px;
+  border: 4px solid #fff;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+#site-loader .text {
+  margin-top: 20px;
+}
+
+#site-loader .loader:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 4px solid #fff;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 2s infinite linear;
+}
