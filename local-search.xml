@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>lvm2</title>
+    <link href="/2024/09/17/lvm2/"/>
+    <url>/2024/09/17/lvm2/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>VM镜像<br>镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。</p><h4 id="系统版本">系统版本</h4><h1>cat /etc/centos-release</h1><p>CentOS Linux release 7.2.1511 (Core)</p><h4 id="磁盘">磁盘</h4><p>[root@host-192-168-100-19 ~]# lsblk<br>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>vda 252:0 0 10G 0 disk<br>├─vda1 252:1 0 500M 0 part /boot<br>└─vda2 252:2 0 9.5G 0 part<br>├─centos-root 253:0 0 8.5G 0 lvm /<br>└─centos-swap 253:1 0 1G 0 lvm [SWAP]<br>vdb 252:16 0 5G 0 disk<br>vdc 252:32 0 5G 0 disk<br>vdd 252:48 0 5G 0 disk</p><h4 id="创建物理卷">创建物理卷</h4><h1>pvcreate /dev/vdb /dev/vdc</h1><h4 id="创建卷组">创建卷组</h4><h1>vgcreate wyl /dev/vdb /dev/vdc</h1><h4 id="创建镜像卷">创建镜像卷</h4><p>lvcreate -L 3G -m1 -n mirror wyl /dev/vdc /dev/vdb</p><p>说明:<br>使用-ml参数标志为创建镜像；使用-L参数设定镜像卷的大小为3G；使用-n参数为镜像指定名称为mirror。这个镜像包括两部分：vdb和vdc为数据卷和副本卷分区<br>查看逻辑卷的状态<br>查看当前lvm中设备状态：</p><p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/11.png" srcset="/img/loading.gif" lazyload alt=""></p><h1>lvs -a -o +devices</h1><p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/12.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p><h4 id="对新建的镜像lv进行格式化和挂载">对新建的镜像lv进行格式化和挂载</h4><h1>mkfs.xfs /dev/wyl/mirror</h1><h1>mkdir /mirror</h1><h1>mount /dev/wyl/mirror /mirror/</h1><h4 id="测试分区读写ok">测试分区读写ok</h4><h1>cd /mirror/</h1><h1>echo “it’s ok” &gt;test</h1><h1>cat test</h1><p>it’s ok</p><h4 id="对镜像lvm进行破坏">对镜像lvm进行破坏</h4><h1>dd if=/dev/zero of=/dev/vdc count=10</h1><p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/13.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p><h4 id="破坏之后可以看到镜像lv中的-dev-vdc变成了未知">破坏之后可以看到镜像lv中的/dev/vdc变成了未知</h4><p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/14.png" srcset="/img/loading.gif" lazyload alt="enter image description here"><br><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/15.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p><h4 id="把坏掉的设备从wyl中移除：">把坏掉的设备从wyl中移除：</h4><h1>vgreduce --removemissing --force wyl</h1><h4 id="查看当前lvm中设备状态：">查看当前lvm中设备状态：</h4><h1>lvs -a -o +devices</h1><p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/16.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p><h4 id="镜像数据恢复（过程中无须解除逻辑卷的挂载）">镜像数据恢复（过程中无须解除逻辑卷的挂载）</h4><p>在wyl中新加一个pv，对数据进行恢复：</p><h1>vgextend wyl /dev/vdd</h1><h4 id="取消设置镜像卷">取消设置镜像卷</h4><h1>lvconvert -m0 /dev/wyl/mirror</h1><h4 id="迁移数据-将vdc数据同步到vdd中">迁移数据,将vdc数据同步到vdd中</h4><h1>lvconvert -m1 /dev/wyl/mirror /dev/vdd /dev/vdc</h1><h4 id="测试">测试</h4><h1>cd /mirror/</h1><h1>echo ‘it is ok 2’ &gt;test2</h1><h1>cat test</h1><p>it’s ok</p><p>镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。</p><p>系统版本<br>cat /etc/centos-release<br>CentOS Linux release 7.2.1511 (Core)</p><p>磁盘<br>[root@host-192-168-100-19 ~]# lsblk<br>NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>vda 252:0 0 10G 0 disk<br>├─vda1 252:1 0 500M 0 part /boot<br>└─vda2 252:2 0 9.5G 0 part<br>├─centos-root 253:0 0 8.5G 0 lvm /<br>└─centos-swap 253:1 0 1G 0 lvm [SWAP]<br>vdb 252:16 0 5G 0 disk<br>vdc 252:32 0 5G 0 disk<br>vdd 252:48 0 5G 0 disk</p><p>创建物理卷<br>pvcreate /dev/vdb /dev/vdc<br>创建卷组<br>vgcreate wyl /dev/vdb /dev/vdc<br>创建镜像卷<br>lvcreate -L 3G -m1 -n mirror wyl /dev/vdc /dev/vdb</p><p>说明:<br>使用-ml参数标志为创建镜像；使用-L参数设定镜像卷的大小为3G；使用-n参数为镜像指定名称为mirror。这个镜像包括两部分：vdb和vdc为数据卷和副本卷分区<br>查看逻辑卷的状态<br>查看当前lvm中设备状态：</p><p>lvs -a -o +devices<br>enter image description here</p><p>对新建的镜像lv进行格式化和挂载<br>mkfs.xfs /dev/wyl/mirror<br>mkdir /mirror<br>mount /dev/wyl/mirror /mirror/<br>测试分区读写ok<br>cd /mirror/<br>echo “it’s ok” &gt;test<br>cat test<br>it’s ok</p><p>对镜像lvm进行破坏<br>dd if=/dev/zero of=/dev/vdc count=10<br>enter image description here</p><p>破坏之后可以看到镜像lv中的/dev/vdc变成了未知<br>enter image description here<br>enter image description here</p><p>把坏掉的设备从wyl中移除：<br>vgreduce --removemissing --force wyl<br>查看当前lvm中设备状态：<br>lvs -a -o +devices<br>enter image description here</p><p>镜像数据恢复（过程中无须解除逻辑卷的挂载）<br>在wyl中新加一个pv，对数据进行恢复：</p><p>vgextend wyl /dev/vdd<br>取消设置镜像卷<br>lvconvert -m0 /dev/wyl/mirror<br>迁移数据,将vdc数据同步到vdd中<br>lvconvert -m1 /dev/wyl/mirror /dev/vdd /dev/vdc<br>测试<br>cd /mirror/<br>echo ‘it is ok 2’ &gt;test2<br>cat test<br>it’s ok</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>lvm</title>
+    <link href="/2024/09/17/lvm-1/"/>
+    <url>/2024/09/17/lvm-1/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LVM镜像</title>
     <link href="/2024/09/17/lvm/"/>
     <url>/2024/09/17/lvm/</url>
