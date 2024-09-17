@@ -16,21 +16,28 @@
   <meta name="author" content="Luping">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="lvm镜像卷复制 LVM镜像 镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。 系统版本 cat &#x2F;etc&#x2F;centos-release CentOS Linux release 7.2.1511 (Core) 磁盘 [root@host-192-168-100-19 ~]# lsbl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://blog.fuluping.com/2024/09/16/hello-world/index.html">
+<meta property="og:title" content="LVM镜像">
+<meta property="og:url" content="https://blog.fuluping.com/2024/09/17/lvm/index.html">
 <meta property="og:site_name" content="Luping’s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="lvm镜像卷复制 LVM镜像 镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。 系统版本 cat &#x2F;etc&#x2F;centos-release CentOS Linux release 7.2.1511 (Core) 磁盘 [root@host-192-168-100-19 ~]# lsbl">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-16T05:39:14.544Z">
-<meta property="article:modified_time" content="2024-09-16T07:38:13.230Z">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/11.png">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/12.png">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/13.png">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/14.png">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/15.png">
+<meta property="og:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/16.png">
+<meta property="article:published_time" content="2024-09-17T06:19:02.066Z">
+<meta property="article:modified_time" content="2024-09-17T06:20:40.692Z">
 <meta property="article:author" content="Luping">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/11.png">
   
   
   
-  <title>Hello World - Luping’s blog</title>
+  <title>LVM镜像 - Luping’s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -311,7 +318,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">Hello World</span>
+            <span id="subtitle">LVM镜像</span>
           
         </div>
 
@@ -327,8 +334,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-16 13:39" pubdate>
-          2024年9月16日 下午
+        <time datetime="2024-09-17 14:19" pubdate>
+          2024年9月17日 下午
         </time>
       </span>
     
@@ -339,7 +346,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          390 字
+          2.3k 字
         
       </span>
     
@@ -350,7 +357,7 @@
         
         
         
-          4 分钟
+          20 分钟
         
       </span>
     
@@ -414,12 +421,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">LVM镜像</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2024年9月16日 下午
+                    本文最后更新于：2024年9月17日 下午
                   
                 
               </p>
@@ -427,24 +434,128 @@
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<video width="320" height="240" controls>
-  <source src="��Ƶ��ַд����" type="video/mp4">
-  �����������֧�ֲ��Ÿ���Ƶ��
-</video>
+                <p>lvm镜像卷复制</p>
+<p>LVM镜像<br>
+镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。</p>
+<h4 id="系统版本">系统版本</h4>
+<h1>cat /etc/centos-release</h1>
+<p>CentOS Linux release 7.2.1511 (Core)</p>
+<h4 id="磁盘">磁盘</h4>
+<p>[root@host-192-168-100-19 ~]# lsblk<br>
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>
+vda 252:0 0 10G 0 disk<br>
+├─vda1 252:1 0 500M 0 part /boot<br>
+└─vda2 252:2 0 9.5G 0 part<br>
+├─centos-root 253:0 0 8.5G 0 lvm /<br>
+└─centos-swap 253:1 0 1G 0 lvm [SWAP]<br>
+vdb 252:16 0 5G 0 disk<br>
+vdc 252:32 0 5G 0 disk<br>
+vdd 252:48 0 5G 0 disk</p>
+<h4 id="创建物理卷">创建物理卷</h4>
+<h1>pvcreate /dev/vdb /dev/vdc</h1>
+<h4 id="创建卷组">创建卷组</h4>
+<h1>vgcreate wyl /dev/vdb /dev/vdc</h1>
+<h4 id="创建镜像卷">创建镜像卷</h4>
+<p>lvcreate -L 3G -m1 -n mirror wyl /dev/vdc /dev/vdb</p>
+<p>说明:<br>
+使用-ml参数标志为创建镜像；使用-L参数设定镜像卷的大小为3G；使用-n参数为镜像指定名称为mirror。这个镜像包括两部分：vdb和vdc为数据卷和副本卷分区<br>
+查看逻辑卷的状态<br>
+查看当前lvm中设备状态：</p>
+<p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/11.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h1>lvs -a -o +devices</h1>
+<p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/12.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p>
+<h4 id="对新建的镜像lv进行格式化和挂载">对新建的镜像lv进行格式化和挂载</h4>
+<h1>mkfs.xfs /dev/wyl/mirror</h1>
+<h1>mkdir /mirror</h1>
+<h1>mount /dev/wyl/mirror /mirror/</h1>
+<h4 id="测试分区读写ok">测试分区读写ok</h4>
+<h1>cd /mirror/</h1>
+<h1>echo “it’s ok” &gt;test</h1>
+<h1>cat test</h1>
+<p>it’s ok</p>
+<h4 id="对镜像lvm进行破坏">对镜像lvm进行破坏</h4>
+<h1>dd if=/dev/zero of=/dev/vdc count=10</h1>
+<p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/13.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p>
+<h4 id="破坏之后可以看到镜像lv中的-dev-vdc变成了未知">破坏之后可以看到镜像lv中的/dev/vdc变成了未知</h4>
+<p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/14.png" srcset="/img/loading.gif" lazyload alt="enter image description here"><br>
+<img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/15.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p>
+<h4 id="把坏掉的设备从wyl中移除：">把坏掉的设备从wyl中移除：</h4>
+<h1>vgreduce --removemissing --force wyl</h1>
+<h4 id="查看当前lvm中设备状态：">查看当前lvm中设备状态：</h4>
+<h1>lvs -a -o +devices</h1>
+<p><img src="https://stackedit.oss-cn-shanghai.aliyuncs.com/jpg/lvm_mirror/16.png" srcset="/img/loading.gif" lazyload alt="enter image description here"></p>
+<h4 id="镜像数据恢复（过程中无须解除逻辑卷的挂载）">镜像数据恢复（过程中无须解除逻辑卷的挂载）</h4>
+<p>在wyl中新加一个pv，对数据进行恢复：</p>
+<h1>vgextend wyl /dev/vdd</h1>
+<h4 id="取消设置镜像卷">取消设置镜像卷</h4>
+<h1>lvconvert -m0 /dev/wyl/mirror</h1>
+<h4 id="迁移数据-将vdc数据同步到vdd中">迁移数据,将vdc数据同步到vdd中</h4>
+<h1>lvconvert -m1 /dev/wyl/mirror /dev/vdd /dev/vdc</h1>
+<h4 id="测试">测试</h4>
+<h1>cd /mirror/</h1>
+<h1>echo ‘it is ok 2’ &gt;test2</h1>
+<h1>cat test</h1>
+<p>it’s ok</p>
+<p>镜像能够分配物理分区的多个副本，从而提高数据的可用性。当某个磁盘发生故障并且其物理分区变为不可用时，你仍然可以访问可用磁盘上的镜像数据。LVM在逻辑卷内执行镜像。</p>
+<p>系统版本<br>
+cat /etc/centos-release<br>
+CentOS Linux release 7.2.1511 (Core)</p>
+<p>磁盘<br>
+[root@host-192-168-100-19 ~]# lsblk<br>
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT<br>
+vda 252:0 0 10G 0 disk<br>
+├─vda1 252:1 0 500M 0 part /boot<br>
+└─vda2 252:2 0 9.5G 0 part<br>
+├─centos-root 253:0 0 8.5G 0 lvm /<br>
+└─centos-swap 253:1 0 1G 0 lvm [SWAP]<br>
+vdb 252:16 0 5G 0 disk<br>
+vdc 252:32 0 5G 0 disk<br>
+vdd 252:48 0 5G 0 disk</p>
+<p>创建物理卷<br>
+pvcreate /dev/vdb /dev/vdc<br>
+创建卷组<br>
+vgcreate wyl /dev/vdb /dev/vdc<br>
+创建镜像卷<br>
+lvcreate -L 3G -m1 -n mirror wyl /dev/vdc /dev/vdb</p>
+<p>说明:<br>
+使用-ml参数标志为创建镜像；使用-L参数设定镜像卷的大小为3G；使用-n参数为镜像指定名称为mirror。这个镜像包括两部分：vdb和vdc为数据卷和副本卷分区<br>
+查看逻辑卷的状态<br>
+查看当前lvm中设备状态：</p>
+<p>lvs -a -o +devices<br>
+enter image description here</p>
+<p>对新建的镜像lv进行格式化和挂载<br>
+mkfs.xfs /dev/wyl/mirror<br>
+mkdir /mirror<br>
+mount /dev/wyl/mirror /mirror/<br>
+测试分区读写ok<br>
+cd /mirror/<br>
+echo “it’s ok” &gt;test<br>
+cat test<br>
+it’s ok</p>
+<p>对镜像lvm进行破坏<br>
+dd if=/dev/zero of=/dev/vdc count=10<br>
+enter image description here</p>
+<p>破坏之后可以看到镜像lv中的/dev/vdc变成了未知<br>
+enter image description here<br>
+enter image description here</p>
+<p>把坏掉的设备从wyl中移除：<br>
+vgreduce --removemissing --force wyl<br>
+查看当前lvm中设备状态：<br>
+lvs -a -o +devices<br>
+enter image description here</p>
+<p>镜像数据恢复（过程中无须解除逻辑卷的挂载）<br>
+在wyl中新加一个pv，对数据进行恢复：</p>
+<p>vgextend wyl /dev/vdd<br>
+取消设置镜像卷<br>
+lvconvert -m0 /dev/wyl/mirror<br>
+迁移数据,将vdc数据同步到vdd中<br>
+lvconvert -m1 /dev/wyl/mirror /dev/vdd /dev/vdc<br>
+测试<br>
+cd /mirror/<br>
+echo ‘it is ok 2’ &gt;test2<br>
+cat test<br>
+it’s ok</p>
+
                 
               </div>
             
@@ -484,8 +595,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://blog.fuluping.com/2024/09/16/hello-world/</div>
+      <div>LVM镜像</div>
+      <div>https://blog.fuluping.com/2024/09/17/lvm/</div>
     </div>
     <div class="license-meta">
       
@@ -497,13 +608,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月16日</div>
+          <div>2024年9月17日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年9月16日</div>
+          <div>2024年9月17日</div>
         </div>
       
       
@@ -546,15 +657,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/09/17/lvm/" title="LVM镜像">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LVM镜像</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2024/09/16/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
