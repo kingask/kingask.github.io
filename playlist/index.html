@@ -16,15 +16,15 @@
   <meta name="author" content="Luping">
   <meta name="keywords" content="">
   
-    <meta name="description" content="🔶🔷聆听世界🔷🔶 ✨静静听歌,所有美好的回忆就像闪亮的星星一样划过脑海。✨ -------------------------------------------------------- 📻Luping的电台  			 				console.error(&quot;SyntaxError: Expected &#39;,&#39; or &#39;}&#39; after property value in JSON at">
+    <meta name="description" content="🔶🔷聆听世界🔷🔶 ✨静静听歌,所有美好的回忆就像闪亮的星星一样划过脑海。✨ -------------------------------------------------------- 📻Luping的电台           			   				  var options &#x3D; {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:1,&quot;mode&quot;:&quot;r">
 <meta property="og:type" content="website">
 <meta property="og:title" content="音乐">
 <meta property="og:url" content="https://blog.fuluping.com/playlist/index.html">
 <meta property="og:site_name" content="Luping’s blog">
-<meta property="og:description" content="🔶🔷聆听世界🔷🔶 ✨静静听歌,所有美好的回忆就像闪亮的星星一样划过脑海。✨ -------------------------------------------------------- 📻Luping的电台  			 				console.error(&quot;SyntaxError: Expected &#39;,&#39; or &#39;}&#39; after property value in JSON at">
+<meta property="og:description" content="🔶🔷聆听世界🔷🔶 ✨静静听歌,所有美好的回忆就像闪亮的星星一样划过脑海。✨ -------------------------------------------------------- 📻Luping的电台           			   				  var options &#x3D; {&quot;narrow&quot;:false,&quot;autoplay&quot;:true,&quot;showlrc&quot;:1,&quot;mode&quot;:&quot;r">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-11T12:13:28.000Z">
-<meta property="article:modified_time" content="2024-11-19T03:14:30.422Z">
+<meta property="article:modified_time" content="2024-11-19T03:16:54.095Z">
 <meta property="article:author" content="Luping">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -104,6 +104,8 @@
   
 
 <!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Luping’s blog" type="application/atom+xml">
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 
 
@@ -311,9 +313,14 @@
 <h2 style="text-align:center">--------------------------------------------------------</h2>
 <h3 style="text-align:center">📻Luping的电台</h3>
 
-			<script>
-				console.error("SyntaxError: Expected ',' or '}' after property value in JSON at position 727");
-			</script>
+        <div id="aplayer-nFJeHvvi" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+			  <script>
+				  var options = {"narrow":false,"autoplay":true,"showlrc":1,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"空","author":"林志炫","url":"https://music.fuluping.com/%E7%A9%BA.mp3","lrc":"caffeine.txt","pic":""},{"title":"等你下课","author":"周杰伦","url":"https://music.fuluping.com/%E7%AD%89%E4%BD%A0%E4%B8%8B%E8%AF%BE.mp3","pic":""},{"title":"Hungarian Sonata","author":"克莱德曼","url":"https://music.fuluping.com/HungarianSonata.mp3","pic":""}]};
+				  options.element = document.getElementById("aplayer-nFJeHvvi");
+				  var ap = new APlayer(options);
+			    window.aplayers || (window.aplayers = []);
+				  window.aplayers.push(ap);
+			  </script>
 
   
   
