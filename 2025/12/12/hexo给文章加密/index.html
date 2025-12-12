@@ -19,21 +19,21 @@
   <meta name="author" content="Luping">
   <meta name="keywords" content="">
   
-    <meta name="description" content="先安装v2ray-core 1https:&#x2F;&#x2F;github.com&#x2F;v2fly&#x2F;v2ray-core&#x2F;releases 解压： 1sudo unzip v2ray-linux-64.zip -d &#x2F;usr&#x2F;local&#x2F;v2ray-core 然后拷贝geoip.dat和geosite.dat到&#x2F;usr&#x2F;local&#x2F;share&#x2F;v2ray&#x2F;： 12sudo mkdir -p &#x2F;usr&#x2F;local&#x2F;sh">
+    <meta name="description" content="这是个啥 • 首先, 这是 Hexo 生态圈中 「最好的」 博客加密插件~ • 你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览. • 这在 wordpress, emlog 或是其他博客系统中都很容易实现, 然而 hexo 除外. :( • 为了解决这个问题, 让我们有请 “hexo-blog-encrypt”. 特性 • 一旦你输入了正确的密码, 它将会被存储在本地浏览器的 l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="v2rayA on Debian">
-<meta property="og:url" content="https://blog.fuluping.com/2025/11/17/v2rayA-on-Debian/index.html">
+<meta property="og:title" content="hexo给文章加密">
+<meta property="og:url" content="https://blog.fuluping.com/2025/12/12/hexo%E7%BB%99%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86/index.html">
 <meta property="og:site_name" content="Luping’s blog">
-<meta property="og:description" content="先安装v2ray-core 1https:&#x2F;&#x2F;github.com&#x2F;v2fly&#x2F;v2ray-core&#x2F;releases 解压： 1sudo unzip v2ray-linux-64.zip -d &#x2F;usr&#x2F;local&#x2F;v2ray-core 然后拷贝geoip.dat和geosite.dat到&#x2F;usr&#x2F;local&#x2F;share&#x2F;v2ray&#x2F;： 12sudo mkdir -p &#x2F;usr&#x2F;local&#x2F;sh">
+<meta property="og:description" content="这是个啥 • 首先, 这是 Hexo 生态圈中 「最好的」 博客加密插件~ • 你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览. • 这在 wordpress, emlog 或是其他博客系统中都很容易实现, 然而 hexo 除外. :( • 为了解决这个问题, 让我们有请 “hexo-blog-encrypt”. 特性 • 一旦你输入了正确的密码, 它将会被存储在本地浏览器的 l">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-17T08:13:49.000Z">
-<meta property="article:modified_time" content="2025-11-17T08:46:13.325Z">
+<meta property="article:published_time" content="2025-12-12T08:56:29.000Z">
+<meta property="article:modified_time" content="2025-12-12T08:56:59.440Z">
 <meta property="article:author" content="Luping">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>v2rayA on Debian - Luping’s blog</title>
+  <title>hexo给文章加密 - Luping’s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -262,7 +262,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">v2rayA on Debian</span>
+            <span id="subtitle">hexo给文章加密</span>
           
         </div>
 
@@ -278,8 +278,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-17 16:13" pubdate>
-          2025年11月17日 下午
+        <time datetime="2025-12-12 16:56" pubdate>
+          2025年12月12日 下午
         </time>
       </span>
     
@@ -290,7 +290,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          148 字
+          1.2k 字
         
       </span>
     
@@ -301,7 +301,7 @@
         
         
         
-          2 分钟
+          11 分钟
         
       </span>
     
@@ -360,12 +360,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">v2rayA on Debian</h1>
+            <h1 id="seo-header">hexo给文章加密</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年11月17日 下午
+                    本文最后更新于 2025年12月12日 下午
                   
                 
               </p>
@@ -373,27 +373,139 @@
             
               <div class="markdown-body">
                 
-                <h2 id="先安装v2ray-core">先安装v2ray-core</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://github.com/v2fly/v2ray-core/releases<br></code></pre></td></tr></table></figure>
-<p>解压：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo unzip v2ray-linux-64.zip -d /usr/local/v2ray-core<br></code></pre></td></tr></table></figure>
-<p>然后拷贝geoip.dat和geosite.dat到/usr/local/share/v2ray/：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /usr/local/share/v2ray/<br>sudo <span class="hljs-built_in">mv</span> /usr/local/v2ray-core/*dat /usr/local/share/v2ray/<br></code></pre></td></tr></table></figure>
-<h2 id="v2rayA安装，从此处下载：">v2rayA安装，从此处下载：</h2>
-<p><a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2rayA/releases/">https://github.com/v2rayA/v2rayA/releases/</a><br>
-下载对应架构的deb包后安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo dpkg -i installer_debian_x64_*.deb<br></code></pre></td></tr></table></figure>
-<h2 id="配置v2rayA：">配置v2rayA：</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/default/v2raya<br><br><span class="hljs-comment"># 添加如下配置</span><br><br>V2RAYA_V2RAY_BIN=/usr/local/v2ray-core/v2ray<br>V2RAYA_V2RAY_CONFDIR=/usr/local/v2ray-core<br><br><span class="hljs-comment"># 输入&quot;:wq!&quot;后可保存更改</span><br></code></pre></td></tr></table></figure>
-<p>设置开机启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl <span class="hljs-built_in">enable</span> --now v2raya<br>sudo systemctl status v2raya<br></code></pre></td></tr></table></figure>
-<p>浏览器访问：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>http://&lt;IP&gt;:2017<br></code></pre></td></tr></table></figure>
+                <h2 id="这是个啥•-首先-这是-Hexo-生态圈中-「最好的」-博客加密插件-•-你可能需要写一些私密的博客-通过密码验证的方式让人不能随意浏览-•-这在-wordpress-emlog-或是其他博客系统中都很容易实现-然而-hexo-除外-•-为了解决这个问题-让我们有请-“hexo-blog-encrypt”-特性•-一旦你输入了正确的密码-它将会被存储在本地浏览器的-localStorage中-按个按钮-密码将会被清空-若博客中有脚本-它将会被正确地执行-•-支持按标签加密-•-所有的核心功能都是由原生的-API-所提供的-在-Node-js中-我们使用-Crypto-在浏览器中-我们使用-Web-Crypto-API-•-PBKDF2-SHA256-被用于分发密钥-AES256-CBC-被用于加解密-我们还使用-HMAC-来验证密文的来源-并确保其未被篡改-•-我们广泛地使用-Promise-来进行异步操作-以此确保线程不被阻塞-•-加密页面多主题支持-现在已经支持的主题有-default-xray-更多的主题正在开发中-•-过时的浏览器将不能正常显示-因此-请升级您的浏览器-在线演示•-点击-Demo-Page-「所有的密码都是-hello」-安装•-npm-install-save-hexo-blog-encrypt•-或-yarn-add-hexo-blog-encrypt-需要-Yarn-快速使用•-将-“password”-字段添加到您文章信息头就像这样">这是个啥<br>
+• 首先, 这是 Hexo 生态圈中 「最好的」 博客加密插件~<br>
+• 你可能需要写一些私密的博客, 通过密码验证的方式让人不能随意浏览.<br>
+• 这在 wordpress, emlog 或是其他博客系统中都很容易实现, 然而 hexo 除外. :(<br>
+• 为了解决这个问题, 让我们有请 “hexo-blog-encrypt”.<br>
+特性<br>
+• 一旦你输入了正确的密码, 它将会被存储在本地浏览器的 localStorage中. 按个按钮, 密码将会被清空. 若博客中有脚本, 它将会被正确地执行.<br>
+• 支持按标签加密.<br>
+• 所有的核心功能都是由原生的 API 所提供的. 在 Node.js中, 我们使用 Crypto. 在浏览器中, 我们使用 Web Crypto API.<br>
+• PBKDF2, SHA256 被用于分发密钥, AES256-CBC 被用于加解密, 我们还使用 HMAC 来验证密文的来源, 并确保其未被篡改.<br>
+• 我们广泛地使用 Promise 来进行异步操作, 以此确保线程不被阻塞.<br>
+• 加密页面多主题支持, 现在已经支持的主题有 [default, xray], 更多的主题正在开发中.<br>
+• 过时的浏览器将不能正常显示, 因此, 请升级您的浏览器.<br>
+在线演示<br>
+• 点击 Demo Page, 「所有的密码都是 hello」.<br>
+安装<br>
+• npm install --save hexo-blog-encrypt<br>
+• 或 yarn add hexo-blog-encrypt (需要) Yarn)<br>
+快速使用<br>
+• 将 “password” 字段添加到您文章信息头就像这样.</h2>
+<h2 id="title-Hello-Worlddate-2016-03-30-21-18-02password-hello">title: Hello World<br>
+date: 2016-03-30 21:18:02<br>
+password: hello</h2>
+<h2 id="•-再使用-hexo-clean-hexo-g-hexo-s-在本地预览加密的文章-设置优先级文章信息头-按标签加密高级设置文章信息头">• 再使用 hexo clean &amp;&amp; hexo g &amp;&amp; hexo s 在本地预览加密的文章.<br>
+设置优先级<br>
+文章信息头 &gt; 按标签加密<br>
+高级设置<br>
+文章信息头</h2>
+<p>title: Hello World<br>
+tags:</p>
+<ul>
+<li>作为日记加密<br>
+date: 2016-03-30 21:12:21<br>
+password: mikemessi<br>
+abstract: 有东西被加密了, 请输入密码查看.<br>
+message: 您好, 这里需要密码.<br>
+wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>
+wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</li>
+</ul>
 <hr>
-<p>附件下载:</p>
-<p>附件1：<a target="_blank" rel="noopener" href="https://dl.fuluping.com/installer_debian_x64_2.2.7.3.deb"><u>installer_debian_x64_2.2.7.3.deb</u></a></p>
-<p>附件2：<a target="_blank" rel="noopener" href="https://dl.fuluping.com/v2ray-linux-64.zip"><u>v2ray-linux-64.zip</u></a></p>
-
+<p>_config.yml<br>
+示例</p>
+<h1>Security</h1>
+<p>encrypt: # hexo-blog-encrypt<br>
+abstract: 有东西被加密了, 请输入密码查看.<br>
+message: 您好, 这里需要密码.<br>
+tags:</p>
+<ul>
+<li>{name: tagName, password: 密码A}</li>
+<li>{name: tagName, password: 密码B}<br>
+wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>
+wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.<br>
+对博文禁用 Tag 加密<br>
+只需要将博文头部的 password 设置为 “” 即可取消 Tag 加密.<br>
+Example:</li>
+</ul>
+<hr>
+<h2 id="title-Callback-Testdate-2019-12-21-11-54-07tags-A-Tag-should-be-encryptedpassword-“”">title: Callback Test<br>
+date: 2019-12-21 11:54:07<br>
+tags:<br>
+- A Tag should be encrypted<br>
+password: “”</h2>
+<h2 id="Use-a-“”-to-diable-tag-encryption-配置优先级文章信息头-config-yml-站点根目录下的-默认配置关于-Callback-函数在部分博客中-解密后部分元素可能无法正常显示或者表现-这属于已知问题-目前的解决办法是通过自行查阅自己的博客中的代码-了解到在-onload-事件发生时调用了哪些函数-并将这些函数挑选后写入到博客内容中-如">Use a “” to diable tag encryption.<br>
+配置优先级<br>
+文章信息头 &gt; _config.yml (站点根目录下的) &gt; 默认配置<br>
+关于 Callback 函数<br>
+在部分博客中, 解密后部分元素可能无法正常显示或者表现, 这属于已知问题. 目前的解决办法是通过自行查阅自己的博客中的代码, 了解到在 onload 事件发生时调用了哪些函数, 并将这些函数挑选后写入到博客内容中. 如:</h2>
+<h2 id="title-Callback-Testdate-2019-12-21-11-54-07tags-Encrypted">title: Callback Test<br>
+date: 2019-12-21 11:54:07<br>
+tags:<br>
+- Encrypted</h2>
+<p>This is a blog to test Callback functions. You just need to add code at the last of your post like following:<br>
+It will be called after the blog decrypted.</p>
+<script>
+    // 添加一个 script tag 与代码在文章末尾.
+    alert("Hello World");
+</script> 
+<p>例子在: Callback 例子.<br>
+解密后的触发事件<br>
+感谢 @f-dong, 我们现在会在解密完成后触发一个 hexo-blog-decrypt 事件, 你们可以编写 callback 来监听该事件.<br>
+// trigger event<br>
+var event = new Event(‘hexo-blog-decrypt’);<br>
+window.dispatchEvent(event);<br>
+对 TOC 进行加密<br>
+如果你有一篇文章使用了 TOC，你需要修改模板的部分代码。这里用 landscape 作为例子：<br>
+• 你可以在 hexo/themes/landscape/layout/_partial/article.ejs 找到 article.ejs。<br>
+• 然后找到 &lt;% post.content %&gt; 这段代码，通常在30行左右。<br>
+• 使用如下的代码来替代它:<br>
+&lt;% if(post.toc == true){ %&gt;</p>
+  <div id="toc-div" class="toc-article" <% if (post.encrypt == true) { %>style="display:none" <% } %>>
+    <strong class="toc-title">Index</strong>
+      <% if (post.encrypt == true) { %>
+        <%- toc(post.origin, {list_number: true}) %>
+      <% } else { %>
+        <%- toc(post.content, {list_number: true}) %>
+      <% } %>
+  </div>
+<% } %>
+<%- post.content %> 
+禁用 Log
+If you want to disable the logging, you can add a silent property in _config.yml and set it to true. 如果你想要禁止使用 Log, 你可以在 _config.yml 中增加一个 silent 属性, 并将其设置为 true.
+# Security
+encrypt: # hexo-blog-encrypt
+  silent: true
+这样就会禁止如 INFO hexo-blog-encrypt: encrypting "{Blog Name}" based on Tag: "EncryptedTag". 的日志.
+加密主题
+之前, 我们尝试使用 template 关键字来让用户能修改自己的主题. 后来发现真不是一个好主意. 所以我们现在引入了主题: theme 关键字.
+你可以简单的使用 theme 在 _config.yml 里或者文章头, 如下:
+文章信息头
+---
+title: Hello World
+tags:
+- 作为日记加密
+date: 2016-03-30 21:12:21
+password: mikemessi
+abstract: 有东西被加密了, 请输入密码查看.
+message: 您好, 这里需要密码.
+theme: xray
+wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
+---
+在 _config.yml
+示例
+# Security
+encrypt: # hexo-blog-encrypt
+  abstract: 有东西被加密了, 请输入密码查看.
+  message: 您好, 这里需要密码.
+  tags:
+  - {name: tagName, password: 密码A}
+  - {name: tagName, password: 密码B}
+  theme: xray
+  wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
+  wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
                 
               </div>
             
@@ -410,8 +522,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>v2rayA on Debian</div>
-      <div>https://blog.fuluping.com/2025/11/17/v2rayA-on-Debian/</div>
+      <div>hexo给文章加密</div>
+      <div>https://blog.fuluping.com/2025/12/12/hexo给文章加密/</div>
     </div>
     <div class="license-meta">
       
@@ -423,13 +535,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月17日</div>
+          <div>2025年12月12日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年11月17日</div>
+          <div>2025年12月12日</div>
         </div>
       
       
@@ -472,18 +584,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/12/12/hexo%E7%BB%99%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86/" title="hexo给文章加密">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo给文章加密</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/09/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2025/11/17/v2rayA-on-Debian/" title="v2rayA on Debian">
+                        <span class="hidden-mobile">v2rayA on Debian</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
